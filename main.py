@@ -1,6 +1,14 @@
 from src.plugins.discord import *
 from src.plugins.gettoken import *
 
+args = sys.argv[1:]
+forcetoken = None
+if len(args) > 0:
+    startup = True
+    forcetoken = args[0]
+else:
+    startup = False
+
 while True:
     os.system('cls')
     print(fr'''{F.LIGHTGREEN_EX}
@@ -17,27 +25,35 @@ INFO2 > Only supports if you have Discord APP installed no browsers/canary etc (
 1 > Backup
 2 > Restore
 3 > Add to startup (no cmd no discord open or anything) 
+4 > Remove from startup
     ''')
-    e = input(f'{F.LIGHTGREEN_EX}-> ')
+    if startup:
+        e = input(f'{F.LIGHTGREEN_EX}-> ')
+    else:
+        e = '1'
     if e == '1':
-        tokens = gettoken() or []
-        if tokens:
-            for index, (token, username) in enumerate(tokens):
-                print(f'{F.GREEN}> {index + 1} - {username} - {token[:35]}...   ')
+        if not startup:
+            tokens = gettoken() or []
+            if tokens:
+                for index, (token, username) in enumerate(tokens):
+                    print(f'{F.GREEN}> {index + 1} - {username} - {token[:35]}...   ')
 
-            choice = input(f'{F.LIGHTGREEN_EX}-> ')
-            selected_index = int(choice) - 1
-            if 0 <= selected_index < len(tokens):
-                selected_token, selected_username = tokens[selected_index]
+                choice = input(f'{F.LIGHTGREEN_EX}-> ')
+                selected_index = int(choice) - 1
+                if 0 <= selected_index < len(tokens):
+                    selected_token, selected_username = tokens[selected_index]
+
+                else:
+                    log(F.RED, F.RED, 'Not a valid choice')
+                    continue
 
             else:
-                log(F.RED, F.RED, 'Not a valid choice')
+                log(F.RED, F.RED, 'No tokens found')
+                time.sleep(2)
                 continue
-
+        
         else:
-            log(F.RED, F.RED, 'No tokens found')
-            time.sleep(2)
-            continue
+            selected_token = forcetoken
 
         discord = discord(selected_token)
 
@@ -191,3 +207,68 @@ INFO2 > Only supports if you have Discord APP installed no browsers/canary etc (
 
         log(F.GREEN, F.GREEN, 'Done!')
         input('')
+
+    elif e == '3':
+        log(F.GREEN, F.GREEN, 'IMPORTANT!! - The token that you set NOW will be used to backup EVERYTIME YOU START UR PC! If the token is invalided ex you log out you will need to remove the current startup (option 4) and run this again!!!')
+        tokens = gettoken() or []
+        if tokens:
+            for index, (token, username) in enumerate(tokens):
+                print(f'{F.GREEN}> {index + 1} - {username} - {token[:35]}...   ')
+
+            choice = input(f'{F.LIGHTGREEN_EX}-> ')
+            selected_index = int(choice) - 1
+            if 0 <= selected_index < len(tokens):
+                selected_token, selected_username = tokens[selected_index]
+
+            else:
+                log(F.RED, F.RED, 'Not a valid choice')
+                continue
+
+        else:
+            log(F.RED, F.RED, 'No tokens found')
+            time.sleep(2)
+            continue
+
+        apptata = os.getenv('APPDATA')
+
+        os.makedirs(f'{apptata}\\LimeUP', exist_ok=True)
+
+        with open(f'{apptata}\\LimeUP\\StartupToken.txt', 'w') as f:
+            f.write(selected_token)
+
+        with open(f'{apptata}\\LimeUP\\Startup.txt', 'w') as f:
+            f.write('1')
+
+        script_folder = os.path.abspath(__file__)
+        startup = os.path.join(os.getenv('APPDATA'), 'Microsoft', 'Windows', 'Start Menu', 'Programs', 'Startup')
+        
+        with open(f'{startup}\\LimeUP-AutoBackup.py', 'w') as f:
+            f.write(f'''
+import os
+import subprocess
+from tkinter import Tk, messagebox
+
+with open(r'{apptata}\\LimeUP\\StartupToken.txt', 'r') as f:
+    tkn = f.read().strip()
+
+with open(r'{apptata}\\LimeUP\\Startup.txt', 'r') as f:
+    var = f.read().strip()
+
+def run_main():
+    if var != '1':
+        exit()
+
+    try:
+        subprocess.run(['py', r'{script_folder}\\main.py', tkn], check=True)
+    except subprocess.CalledProcessError:
+        messagebox.showerror('Error', 'Failed to run the backup on start (LimeUP folder moved?). Try to remove and re-add the startup!')
+
+run_main()
+''')
+
+        log(F.GREEN, F.GREEN, 'Done!')
+        input('')
+    
+    else:
+        log(F.RED, F.RED, 'Not a valid choice')
+        time.sleep(2)
