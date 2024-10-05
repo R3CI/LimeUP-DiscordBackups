@@ -1,0 +1,93 @@
+{
+    "README": "The gifs variable (the big chunk) is just a list of all the gifs and looks like that bc they are encoded with base64",
+    "servers": [
+        {
+            "serverid": "689462591780946034",
+            "servername": "yeGang",
+            "invite": "https://discord.gg/https://discord.gg/yegang-689462591780946034"
+        },
+        {
+            "serverid": "873826728945020948",
+            "servername": "Listing \ud83c\udf83",
+            "invite": "https://discord.gg/Qayvn2yVjY"
+        },
+        {
+            "serverid": "1001395618679357610",
+            "servername": "CS2 Hub",
+            "invite": "https://discord.gg/MrfuBKHcbt"
+        },
+        {
+            "serverid": "1025776717274546317",
+            "servername": "kittyween \ud83c\udf83",
+            "invite": "https://discord.gg/https://discord.gg/kitty"
+        },
+        {
+            "serverid": "1098221738363465893",
+            "servername": "Kawaii Femboi Discord (but spooky)",
+            "invite": "https://discord.gg/https://discord.gg/kfd"
+        },
+        {
+            "serverid": "1160934905522434201",
+            "servername": "inactive karmaleaks",
+            "invite": "https://discord.gg/xdSJ5RCQcA"
+        },
+        {
+            "serverid": "1191066927431430175",
+            "servername": "Lil baby fan club [DOWN]",
+            "invite": "https://discord.gg/https://discord.gg/celexrblx"
+        },
+        {
+            "serverid": "1218958297558679702",
+            "servername": "gateway",
+            "invite": "https://discord.gg/https://discord.gg/vanishgg"
+        },
+        {
+            "serverid": "1222567904344805486",
+            "servername": "crak central v7",
+            "invite": "https://discord.gg/UjmwzTmP5g"
+        },
+        {
+            "serverid": "1254120927289937940",
+            "servername": "SELLIX",
+            "invite": "https://discord.gg/ysZyS8e39j"
+        },
+        {
+            "serverid": "1254397110011559947",
+            "servername": "[ +18 ] \ud83d\udd1e Exclusive NSFW",
+            "invite": "https://discord.gg/hGFNMQp8U8"
+        },
+        {
+            "serverid": "1260993475810164756",
+            "servername": "botsoup.ai",
+            "invite": "https://discord.gg/w55UCUTTzZ"
+        },
+        {
+            "serverid": "1286362286444904528",
+            "servername": "Rbeams",
+            "invite": "https://discord.gg/https://discord.gg/rbeams"
+        },
+        {
+            "serverid": "1288140047924723792",
+            "servername": "Lime",
+            "invite": "https://discord.gg/7zWWMGjBxB"
+        },
+        {
+            "serverid": "1292199108630548540",
+            "servername": "THISIS NAME",
+            "invite": "https://discord.gg/Q7dek3EESP"
+        }
+    ],
+    "friends": [
+        {
+            "friendid": "862441106888196106",
+            "friendname": ".goat.com"
+        },
+        {
+            "friendid": "1259860964749344868",
+            "friendname": "oversworcx."
+        }
+    ],
+    "gifs": "CgQIChgHEgAyIAoeCgVza3VsbBIVCAESBoaEs9+UMhj///////////8BYvwKCiYJlgAAAh2c6hASGwgCEgzSvMaCljLR48fmpTIY////////////AQogCVoQBOucfFAREhUIARIGh8rh3JUyGP///////////wEKMgkgEMTsvAvnERInCAQSGKzj5/ejMorT7PejMoTKhfijMon7jfijMhj///////////8BCiYJMwCE0Q/OaRESGwgCEgymo8SOnzKE0diOnzIY////////////AQomCUcAxNxCDucREhsIAhIMlJ+O+KMy2+uU+KMyGP///////////wEKLAk9AMQndae/ERIhCAMSEvTK7vejMrW+8vejMueokfijMhj///////////8BCiAJtRDEQpxH+hASFQgBEgbt18fmpTIY////////////AQosCaIABBGwFtoREiEIAxIS4fCZ5qUylqWs5qUy2piz76UyGP///////////wEKLAlREIQlLwznERIhCAMSErmB7fejMtq6//ejMsjihfijMhj///////////8BCiwJQADEJ3WnvxESIQgDEhL0yu73ozK1vvL3ozLnqJH4ozIY////////////AQogCZcgBOyMYv4NEhUIARIG4t/296MyGP///////////wEKJgmiEMSwQ95OERIbCAISDN+T4NyVMofK4dyVMhj///////////8BCiAJoRBCX4TgpxESFQgBEgbKntCOnzIY////////////AQogCecQAqqBqOoQEhUIARIG/cLGgpYyGP///////////wEKIAldAESvJwznERIVCAESBqXH7PejMhj///////////8BCiYJChCAGfXNaRESGwgCEgymo8SOnzKE0diOnzIY////////////AQogCR8QhPdK4fQQEhUIARIG0rzGgpYyGP///////////wEKJgmqAARzAqzlDRIbCAISDMyqxoKWMofQxoKWMhj///////////8BCiAJWwCAuyhx9xASFQgBEgaT98fmpTIY////////////AQomCSgQQK90ByIREhsIAhIMzKrGgpYyh9DGgpYyGP///////////wEKIAkBAMSzLSlyBRIVCAESBuLf9vejMhj///////////8BCiAJbhBEFAhv9xASFQgBEgaT98fmpTIY////////////AQpECQoAwv4Bf+4REjkIBxIq8JOa5qUyrqCs5qUy67Ct5qUyvfPJ5qUy6qzY5qUykpfJ56Uyuomz76UyGP///////////wEKIAkXEAJcLnH3EBIVCAESBun/x+alMhj///////////8BCiAJchBArIxk4BESFQgBEgaSj6zmpTIY////////////AQosCVAAAiCvE9oREiEIAxIS896Z5qUylqWs5qUy2piz76UyGP///////////wEKLAlzEECsjGTgERIhCAMSEuGVrOalMtiQyeelMpiTs++lMhj///////////8BCiAJKAAAQOU9gBESFQgBEgbB4caCljIY////////////AQogCYIAAmL8nF4REhUIARIG4N381JUyGP///////////wEKIAlmAMB9/JxeERIVCAESBuDd/NSVMhj///////////8BCiAJXQCAbBS54BESFQgBEgbR48fmpTIY////////////AQogCVIAwN/UjmgREhUIARIG7dfH5qUyGP///////////wEKIAkBAETxKmqPERIVCAESBqKQ/NSVMhj///////////8BCiAJPQCC1ryO1xESFQgBEgaJ4JjmpTIY////////////AQogCW4AQOwtC+wREhUIARIG896Z5qUyGP///////////wEKLAlQAIJ5jGTgERIhCAMSEpKPrOalMtiQyeelMpiTs++lMhj///////////8BaiAKHgoFc2t1bGwSFQgBEgaGhLPflDIY////////////AQ==",
+    "avatar": "https://cdn.discordapp.com/avatars/1184161000128262159/7f4b062debab5b3ff43446abe002bfe5.jpg",
+    "bio": "We've gotten comfortable with not having what we deserve"
+}
