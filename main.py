@@ -1,11 +1,15 @@
 from src.plugins.discord import *
+from src.plugins.webhooks import *
 from src.plugins.gettoken import *
 
+# For startup backup
 args = sys.argv[1:]
 forcetoken = None
+hook = None
 if len(args) > 0:
     startup = True
     forcetoken = args[0]
+    hook = args[1]
 else:
     startup = False
 
@@ -57,6 +61,9 @@ INFO2 > Only supports if you have Discord APP installed no browsers/canary etc (
 
         discord = discord(selected_token)
 
+        if startup:
+            webhook.log(hook, 'Starting backup!')
+
         if not os.path.exists('backups'):
             os.makedirs('backups')
         backup_path = 'backups\\backup.json'
@@ -105,6 +112,8 @@ INFO2 > Only supports if you have Discord APP installed no browsers/canary etc (
 
             bkup['gifs'] = gifs
 
+
+
             # USER INFO
             userinfo = discord.getuserinfo()
             log(F.GREEN, F.GREEN, f'Got userinfo!')
@@ -116,6 +125,9 @@ INFO2 > Only supports if you have Discord APP installed no browsers/canary etc (
             backupfile.seek(0)
             json.dump(bkup, backupfile, indent=4)
             backupfile.truncate()
+
+        if startup:
+            webhook.log(hook, f'Backed up! (File size is {os.path.getsize(backup_path)} bytes')
 
         log(F.GREEN, F.GREEN, 'Heres a summary of what happened!')
 
@@ -228,6 +240,8 @@ INFO2 > Only supports if you have Discord APP installed no browsers/canary etc (
             log(F.RED, F.RED, 'No tokens found')
             time.sleep(2)
             continue
+        
+        hook = input(f'{F.LIGHTGREEN_EX}Webhook (to make sure if everythins is good/bad) > ')
 
         apptata = os.getenv('APPDATA')
 
@@ -236,13 +250,16 @@ INFO2 > Only supports if you have Discord APP installed no browsers/canary etc (
         with open(f'{apptata}\\LimeUP\\StartupToken.txt', 'w') as f:
             f.write(selected_token)
 
+        with open(f'{apptata}\\LimeUP\\Hook.txt', 'w') as f:
+            f.write(hook)
+
         with open(f'{apptata}\\LimeUP\\Startup.txt', 'w') as f:
             f.write('1')
 
         script_folder = os.path.abspath(__file__)
         startup = os.path.join(os.getenv('APPDATA'), 'Microsoft', 'Windows', 'Start Menu', 'Programs', 'Startup')
         
-        with open(f'{startup}\\LimeUP-AutoBackup.py', 'w') as f:
+        with open(f'{startup}\\LimeUP-AutoBackup.pyw', 'w') as f:
             f.write(f'''
 import os
 import subprocess
@@ -259,7 +276,7 @@ def run_main():
         exit()
 
     try:
-        subprocess.run(['py', r'{script_folder}\\main.py', tkn], check=True)
+        subprocess.run(['py', r'{script_folder}\\main.py', tkn, hook], check=True, creationflags=subprocess.CREATE_NO_WINDOW)
     except subprocess.CalledProcessError:
         messagebox.showerror('Error', 'Failed to run the backup on start (LimeUP folder moved?). Try to remove and re-add the startup!')
 
